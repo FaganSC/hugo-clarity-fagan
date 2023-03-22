@@ -1,4 +1,4 @@
-name = "Clarity"
+name = "Clarity-Fagan"
 license = "MIT"
 licenselink = "https://github.com/chipzoller/hugo-clarity/blob/master/LICENSE.md"
 description = "A theme based on VMware's Clarity Design System for publishing technical blogs with Hugo."
