@@ -1,4 +1,5 @@
 {{- $params := site.Params }}
+{{- $p := .Params }}
 {{- $separator := default "|" $params.titleSeparator }}
 {{- $title := "" }}
 {{- if and .Title (ne (trim (lower .Site.Title) "") (trim (lower .Title) "")) }}
@@ -25,6 +26,13 @@
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end -}}
 
+{{- if $p.redirectUrl }}
+<script>
+var url= {{$p.redirectUrl}};
+window.location = url;
+</script>
+{{- end }}
+
 <!-- preload assets declaration -->
 <!-- preload main css file -->
 {{ $styles := partialCached "func/getStylesBundle" . }}
@@ -45,3 +53,4 @@
 {{- end }}
 
 {{- partial "scripts/google/tag-manager" (dict "noscript" false) }}
+
